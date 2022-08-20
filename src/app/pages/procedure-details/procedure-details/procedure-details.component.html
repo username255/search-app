@@ -1,5 +1,18 @@
 <ng-container *ngIf="procedure else loading">
-    <p>{{ procedure.name }} / {{ procedure.active }}
+
+    <div>
+        <a [routerLink]="['/search']">
+            <span class="material-symbols-outlined rotate-180">
+                arrow_circle_right
+            </span>
+        </a>
+    </div>
+
+    <div>
+        <h3>{{ procedure.name }}</h3>
+        <p>Status: {{ procedure.active ? 'active' : 'inactive' }}</p>
+        <p>ID: {{ procedure.id }}</p>
+    </div>
 </ng-container>
 
 <ng-template #loading>

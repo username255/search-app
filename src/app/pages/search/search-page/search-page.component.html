@@ -1,8 +1,18 @@
-<input [formControl]="searchTerm" placeholder="Search...">
+<input [formControl]="searchTerm" placeholder="Search..." class="search-box">
 
 <ng-container *ngIf="(data$ | async) as data">
-  <div *ngFor="let item of data">
-    <p>{{ item.name }} / {{ item.active }} / {{ item.id }}</p>
-    <a [routerLink]="['/detail', item.id]" [state]="item">go to item {{ item.name }}</a>
-  </div>
+
+  <ng-container *ngIf="data?.length; else noData">
+    <h3>Results</h3>
+    <div *ngFor="let item of data" class="card">
+        <span>{{ item.name }}</span>
+        <a [routerLink]="['/detail', item.id]" [state]="item" class="card-link">
+            <span class="material-symbols-outlined">
+                arrow_circle_right
+            </span>
+        </a>
+    </div>
+  </ng-container>
 </ng-container>
+
+<ng-template #noData></ng-template>

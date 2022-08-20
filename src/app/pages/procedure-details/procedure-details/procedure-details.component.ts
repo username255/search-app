@@ -20,7 +20,9 @@ export class ProcedureDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.procedure = this.location.getState() as Procedure;
 
-    if (!this.procedure) {
+    if (!this.procedure?.name) {
+      // since we don't have a way to query data from server (or there's no easy way...)
+      // and we pass the data from the search component by design, we return back to search here
       this.redirectToSearch();
     }
   }

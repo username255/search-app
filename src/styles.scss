@@ -1,5 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
 body {
+    max-width: 800px;
+    width: 100%;
+    margin: 8px auto;
     font-family: HelveticaNeue, "Helvetica Neue", Arial ,sans-serif;
+
+    --border: solid 1px rgba(19, 27, 66, 0.15);
+    --box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
 }
