@@ -1,0 +1,8 @@
+<input [formControl]="searchTerm" placeholder="Search...">
+
+<ng-container *ngIf="(data$ | async) as data">
+  <div *ngFor="let item of data">
+    <p>{{ item.name }} / {{ item.active }} / {{ item.id }}</p>
+    <button>go to item {{ item.name }}</button>
+  </div>
+</ng-container>
