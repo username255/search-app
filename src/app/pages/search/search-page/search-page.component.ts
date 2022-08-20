@@ -1,7 +1,8 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { debounceTime, distinctUntilChanged, Observable, switchMap, take } from 'rxjs';
+import { debounceTime, distinctUntilChanged, Observable, switchMap, take, takeUntil } from 'rxjs';
 import { Procedure } from 'src/app/classes/procedure';
+import { Unsubscribable } from 'src/app/directives/unsubscribable.directive';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { DataService } from 'src/app/services/data.service';
   templateUrl: './search-page.component.html',
   styleUrls: ['./search-page.component.scss']
 })
-export class SearchPageComponent implements AfterViewInit {
+export class SearchPageComponent extends Unsubscribable implements AfterViewInit {
 
   searchTerm: FormControl = new FormControl('');
 
@@ -18,6 +19,8 @@ export class SearchPageComponent implements AfterViewInit {
   constructor(
     private readonly dataService: DataService,
   ) {
+    super();
+
     this.data$ = this.dataService.mem$;
     this.dataService.term$.pipe(
       take(1),
@@ -31,6 +34,7 @@ export class SearchPageComponent implements AfterViewInit {
       distinctUntilChanged(),
       debounceTime(300),
       switchMap((term) => this.dataService.getItems(term)),
+      takeUntil(this.destroyed$),
     ).subscribe();
   }
 
