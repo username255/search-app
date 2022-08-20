@@ -3,6 +3,6 @@
 <ng-container *ngIf="(data$ | async) as data">
   <div *ngFor="let item of data">
     <p>{{ item.name }} / {{ item.active }} / {{ item.id }}</p>
-    <button>go to item {{ item.name }}</button>
+    <a [routerLink]="['/detail', item.id]" [state]="item">go to item {{ item.name }}</a>
   </div>
 </ng-container>

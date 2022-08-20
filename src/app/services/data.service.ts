@@ -16,7 +16,7 @@ export class DataService {
     private readonly http: HttpClient,
   ) { }
 
-  public getItems(term: string): Observable<any[]> {
+  public getItems(term: string): Observable<Procedure[]> {
     this._term$.next(term);
 
     if (!term) {
@@ -31,17 +31,11 @@ export class DataService {
     );
   }
 
-  public getItemById(id: string): Observable<any> {
-    return this._mem$.asObservable().pipe(
-      map((items) => items.find((item: any) => item.id === id)),
-    );
-  }
-
-  public get mem$(): Observable<any> {
+  public get mem$(): Observable<Procedure[]> {
     return this._mem$.asObservable();
   }
 
-  public get term$(): Observable<any> {
+  public get term$(): Observable<string> {
     return this._term$.asObservable();
   }
   

@@ -1,0 +1,7 @@
+<ng-container *ngIf="procedure else loading">
+    <p>{{ procedure.name }} / {{ procedure.active }}
+</ng-container>
+
+<ng-template #loading>
+  <div>Loading...</div>
+</ng-template>
