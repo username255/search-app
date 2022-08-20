@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { ProcedureDetailsRoutingModule } from './procedure-details-routing.module';
 import { ProcedureDetailsComponent } from './procedure-details/procedure-details.component';
-import { DataService } from 'src/app/services/data.service';
+import { DataService } from '../../services/data.service';
 
 
 @NgModule({
   declarations: [
-    ProcedureDetailsComponent
+    ProcedureDetailsComponent,
   ],
   imports: [
     CommonModule,

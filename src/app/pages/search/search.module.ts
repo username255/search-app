@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SearchRoutingModule } from './search-routing.module';
 import { SearchPageComponent } from './search-page/search-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DataService } from 'src/app/services/data.service';
+import { DataService } from '../../services/data.service';
 
 
 @NgModule({

@@ -1,9 +1,9 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, Observable, switchMap, take, takeUntil } from 'rxjs';
-import { Procedure } from 'src/app/classes/procedure';
-import { Unsubscribable } from 'src/app/directives/unsubscribable.directive';
-import { DataService } from 'src/app/services/data.service';
+import { Unsubscribable } from '../../../directives/unsubscribable.directive';
+import { DataService } from '../../../services/data.service';
+import { Procedure } from '../../../classes/procedure';
 
 @Component({
   selector: 'app-search-page',

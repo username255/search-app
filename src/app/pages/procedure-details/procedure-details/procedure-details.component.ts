@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Procedure } from 'src/app/classes/procedure';
+import { Procedure } from '../../../classes/procedure';
 
 @Component({
   selector: 'app-procedure-details',
